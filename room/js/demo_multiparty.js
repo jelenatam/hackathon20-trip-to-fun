@@ -156,7 +156,7 @@ function handleWindowResize() {
 
 function setReshaper(elementId, reshapeFn) {
     var element = document.getElementById(elementId);
-    element.reshapeMe = reshapeFn;
+///     element.reshapeMe = reshapeFn;
 }
 
 
@@ -436,7 +436,7 @@ function appInit(roomName) {
             if( easyrtc.getConnectionCount() == 0 ) { // no more connections
                 expandThumb(0);
                 document.getElementById('textEntryButton').style.display = 'none';
-                document.getElementById('textentryBox').style.display = 'none';
+                // document.getElementById('textentryBox').style.display = 'none';
             }
             handleWindowResize();
         },20);
