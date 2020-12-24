@@ -72,3 +72,35 @@ body {
 #textentryCancel {
     font-size:larger;
 }
+
+#fullpage {
+    position: relative;
+    background-size: cover;
+}
+
+#box0, #box1, #box2, #box3 {
+    position: absolute;
+    width: 480px;
+    height: 360px;
+    box-shadow: 0 0 2px 2px gray;
+}
+
+#box0 {
+    top: 20px;
+    left: 20px;
+}
+
+#box1 {
+    top:20px;
+    right: 20px;
+}
+
+#box2 {
+    left:20px;
+    top: 500px;
+}
+
+#box3 {
+    right: 20px;
+    top: 500px;
+}
