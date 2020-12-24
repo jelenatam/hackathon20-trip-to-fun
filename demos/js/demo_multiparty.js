@@ -156,12 +156,6 @@ function handleWindowResize() {
 
 function setReshaper(elementId, reshapeFn) {
     var element = document.getElementById(elementId);
-    if( !element) {
-        alert("Attempt to apply to reshapeFn to non-existent element " + elementId);
-    }
-    if( !reshapeFn) {
-        alert("Attempt to apply misnamed reshapeFn to element " + elementId);
-    }
     element.reshapeMe = reshapeFn;
 }
 
