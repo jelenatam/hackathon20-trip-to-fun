@@ -156,7 +156,7 @@ function handleWindowResize() {
 
 function setReshaper(elementId, reshapeFn) {
     var element = document.getElementById(elementId);
-    element.reshapeMe = reshapeFn;
+    // element.reshapeMe = reshapeFn;
 }
 
 
