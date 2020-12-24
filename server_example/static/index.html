@@ -1,20 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EasyRTC - Server Root</title>
-    <script type="text/javascript">
-        function forward(){ window.location = "./demos/";}
-    </script>
+    <title>Trip to fun</title>
+    <link rel="stylesheet" href="/home.css">
 </head>
-<body onload="setTimeout('forward()', 10000)">
-    <h1>You have installed EasyRTC!</h1>
+<body>
+<h1>Trip to fun</h1>
+<div id="map">
+    <a href="#" class="building-link" id="b1"></a>
+    <a href="#" class="building-link" id="b2"></a>
+    <a href="#" class="building-link" id="b3"></a>
+    <a href="#" class="building-link" id="b4"></a>
+    <a href="#" class="building-link" id="b5"></a>
+</div>
+<div id="building">
+    <div id="table">
 
-    <h2>This is your server's Web Root</h2>
+    </div>
+</div>
+<script src="/buildings.js"></script>
+<script>
+  let activeBuilding = 0
+  let activeTable = 0
+  document.getElementById('map').addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      e.preventDefault()
+      loadBuilding(e.target.id)
+    }
+  })
 
-    <p>This is the easiest location to put your own static html files for developing WebRTC applications.</p>
 
-    <p>In the meantime we'll forward you to <a href="./demos/">the EasyRTC Demo page</a>...</p>
+  function loadBuilding (id) {
+    activeBuilding = id
+    document.getElementById("map").style.display='none'
+    document.getElementById("building").style.display='block'
+    let building = buildings[id]
+    const tables= document.getElementById("table")
+    tables.innerHTML='';
+    tables.style.backgroundImage=`url(/img/buildings/${building.image}.jpg)`;
+    building.tables.forEach((table,i)=>{
+      console.log(i,table);
+      const tableDiv = document.createElement('div')
+      tableDiv.classList.add('table')
+      tableDiv.classList.add('num'+table.num)
+      tableDiv.style.left=table.x+'px'
+      tableDiv.style.top=table.y+'px'
+      for(let i = 1; i<=table.num;i++){
+        let chair = document.createElement('div')
+        chair.classList.add('chair')
+        chair.classList.add('chair'+i)
+        tableDiv.appendChild(chair)
+      }
 
-    <a href="http://www.easyrtc.com/"><img src="easyrtc/img/powered_by_easyrtc.png" width="200" height="60" alt="Powered by EasyRTC"></a>
+      tables.appendChild(tableDiv)
+    });
+  }
+</script>
 </body>
 </html>
