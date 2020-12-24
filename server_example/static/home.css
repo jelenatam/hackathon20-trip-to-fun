@@ -1,3 +1,8 @@
+body{
+  max-width:1000px;
+  margin:auto;
+}
+
 #map{
   background: url(/img/city.svg) no-repeat;
   background-size:  100%;
@@ -20,6 +25,7 @@
 #b6{left:10px;top:150px;background: tomato;}
 
 #building{display: none;}
+#table{position: relative;width:100%;min-height:400px;}
 
 .table{
   position: absolute;

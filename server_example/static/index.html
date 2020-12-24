@@ -28,6 +28,13 @@
       loadBuilding(e.target.id)
     }
   })
+  document.getElementById('table').addEventListener('click', function (e) {
+    if (e.target.classList.contains('table')) {
+      e.preventDefault()
+      console.log(e.target);
+      loadTable(e.target.dataset)
+    }
+  })
 
 
   function loadBuilding (id) {
@@ -37,23 +44,28 @@
     let building = buildings[id]
     const tables= document.getElementById("table")
     tables.innerHTML='';
+    tables.style.backgroundColor=building.background;
     tables.style.backgroundImage=`url(/img/buildings/${building.image}.jpg)`;
     building.tables.forEach((table,i)=>{
-      console.log(i,table);
       const tableDiv = document.createElement('div')
       tableDiv.classList.add('table')
       tableDiv.classList.add('num'+table.num)
       tableDiv.style.left=table.x+'px'
       tableDiv.style.top=table.y+'px'
+      tableDiv.dataset.building = id
+      tableDiv.dataset.table = i
       for(let i = 1; i<=table.num;i++){
         let chair = document.createElement('div')
         chair.classList.add('chair')
         chair.classList.add('chair'+i)
         tableDiv.appendChild(chair)
       }
-
       tables.appendChild(tableDiv)
     });
+  }
+
+  function loadTable(el){
+    location.href='/demos/?room='+el.building+'t'+el.table
   }
 </script>
 </body>

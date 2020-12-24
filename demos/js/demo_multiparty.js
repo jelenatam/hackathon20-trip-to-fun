@@ -396,7 +396,10 @@ function messageListener(easyrtcid, msgType, content) {
 
 
 function appInit(roomName) {
-
+    if(roomName.length<5){
+        location.href='/';
+        return;
+    }
     // Prep for the top-down layout manager
     setReshaper('fullpage', reshapeFull);
     for(var i = 0; i < numVideoOBJS; i++) {
