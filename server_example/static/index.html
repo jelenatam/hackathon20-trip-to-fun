@@ -7,12 +7,13 @@
 <body>
 <h1>Trip to fun</h1>
 <div id="map">
-    <a href="#" class="building-link" id="b1"></a>
-    <a href="#" class="building-link" id="b2"></a>
-    <a href="#" class="building-link" id="b3"></a>
-    <a href="#" class="building-link" id="b4"></a>
-    <a href="#" class="building-link" id="b5"></a>
+    <a href="#" class="building-link" id="b1">Pretplaćeni na streaming platforme</a>
+    <a href="#" class="building-link" id="b2">Istorija i teorije zavere</a>
+    <a href="#" class="building-link" id="b3">Za iskusne u gamingu</a>
+    <a href="#" class="building-link" id="b4">DevOps za početnike</a>
+    <a href="#" class="building-link" id="b5">JavaScript je zakon</a>
 </div>
+
 <div id="building">
     <div id="table">
 
@@ -31,7 +32,6 @@
   document.getElementById('table').addEventListener('click', function (e) {
     if (e.target.classList.contains('table')) {
       e.preventDefault()
-      console.log(e.target);
       loadTable(e.target.dataset)
     }
   })
